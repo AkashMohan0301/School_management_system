@@ -43,8 +43,8 @@ The School Management System is a Django-based web application that allows manag
 
 ## Technology Stack
 - **Backend Framework:** Django ,Django Rest Framework
-- **Frontend Framework:** Django templates (optional)
-- **Database:** SQLite (default) or other Django-supported databases
+- **Frontend Framework:** Django templates
+- **Database:** SQLite (default)
 - **RBAC:** Django Permissions
 - **State Management:** Django sessions
 - **Messaging Framework:** Django messages for notifications
