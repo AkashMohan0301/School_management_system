@@ -1,0 +1,108 @@
+{% extends "base_generic.html" %}
+{% block sidebar %}
+<ul class="nav">
+  <li class="nav-item">
+    <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+      <i class="mdi mdi-account-multiple-plus menu-icon"></i>
+      <span class="menu-title">Manage Students</span>
+      <i class="menu-arrow"></i>
+    </a>
+    <div class="collapse" id="ui-basic">
+      <ul class="nav flex-column sub-menu">
+        <li class="nav-item"> <a class="nav-link" href="{% url 'add_student' %}">Add Student</a></li>
+        <li class="nav-item"> <a class="nav-link" href="{% url 'student_list' %}">View Students</a></li>
+      </ul>
+    </div>
+  </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+        <i class="mdi mdi-account-multiple-plus menu-icon"></i>
+        <span class="menu-title">Manage Staff</span>
+        <i class="menu-arrow"></i>
+      </a>
+      <div class="collapse" id="ui-basic" >
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item"> <a class="nav-link" href="{% url 'add_office_staff' %}">Add Office Staff</a></li>
+          <li class="nav-item"> <a class="nav-link" href="{% url 'office_staff_list' %}">View Office Staffs</a></li>
+        </ul>
+      </div>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+        <i class="mdi mdi-view-headline menu-icon"></i>
+        <span class="menu-title">Manage Librarian</span>
+        <i class="menu-arrow"></i>
+      </a>
+      <div class="collapse" id="ui-basic">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item"> <a class="nav-link" href="{% url 'add_librarian' %}">Add Librarian</a></li>
+          <li class="nav-item"> <a class="nav-link" href="{% url 'librarian_list' %}">View Librarians</a></li>
+        </ul>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+        <i class="mdi mdi mdi-library menu-icon"></i>
+        <span class="menu-title">Manage Library</span>
+        <i class="menu-arrow"></i>
+      </a>
+      <div class="collapse" id="ui-basic">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item"> <a class="nav-link" href="{% url 'manage_library' %}">Add Library</a></li>
+          <li class="nav-item"> <a class="nav-link" href="{% url 'view_library_history' %}">View Library History</a></li>
+        </ul>
+      </div>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+        <i class="mdi mdi mdi-currency-inr menu-icon"></i>
+        <span class="menu-title">Manage Fees</span>
+        <i class="menu-arrow"></i>
+      </a>
+      <div class="collapse" id="ui-basic">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item"> <a class="nav-link" href="{% url 'add_fees_api' %}">Add Fees</a></li>
+          <li class="nav-item"> <a class="nav-link" href="{% url 'view_fees_history' %}">view_fees_history</a></li>
+        </ul>
+      </div>
+    </li>
+</ul>
+
+{% endblock sidebar %}
+
+{% block main %}
+<div class="row">
+  <div class="col-md-12 stretch-card">
+    <div class="card">
+      <div class="card-body">
+
+        <p class="card-title">Admin Dashboard</p>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock main %}
+
+<!-- <h1>Admin Dashboard</h1>
+<p>Welcome, {{ user.full_name }}! You have full access to the system.</p>
+
+<a href="{% url 'add_office_staff' %}">Add Office Staff</a> <br>
+
+<a href="{% url 'office_staff_list' %}">View Office Staffs</a> <br><br>
+
+<a href="{% url 'add_librarian' %}">Add Librarian</a> <br>
+<a href="{% url 'librarian_list' %}">View Librarians</a> <br><br>
+
+<a href="{% url 'add_student' %}">Add Student</a> <br>
+<a href="{% url 'student_list' %}">View Students</a> <br><br>
+
+<a href="{% url 'manage_library' %}">Add Library History</a> <br>
+<a href="{% url 'view_library_history' %}">View Library History</a> <br><br>
+
+<a href="{% url 'add_fees_api' %}">Add Feess</a> <br>
+<a href="{% url 'view_fees_history' %}">View Fees History</a> <br> -->
+
+

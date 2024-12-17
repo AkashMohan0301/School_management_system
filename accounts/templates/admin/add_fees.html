@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fees History Form</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Manage Fees History</h1>
+
+        <!-- Success Message -->
+        {% if success %}
+            <div class="alert alert-success">{{ success }}</div>
+        {% endif %}
+
+        <!-- Error Messages -->
+
+
+        <form method="POST" action="{% url 'student_add_fee' %}">
+            {% csrf_token %}
+            
+            <!-- Hidden Method Field -->
+            <input type="hidden" id="method" name="method" value="post">
+
+            <!-- Student Field -->
+            <div class="mb-3">
+                <label for="student" class="form-label">Student Name</label>
+                    <input type="hidden" value="{{student.id}}" id="student" name="student">
+                    <input type="text" value="{{student.name}}" class="form-control" readonly   >
+                {% if errors.student %}
+                    <div class="text-danger">
+                        {% for message in errors.student %}
+                            <p>{{ message }}</p>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+
+            <!-- Fee Type Field -->
+            <div class="mb-3">
+                <label for="fee_type" class="form-label">Fee Type</label>
+                <select id="fee_type" name="fee_type" class="form-select" required>
+                    <option value="library_fee">Library Fee</option>
+                </select>
+                {% if errors.fee_type %}
+                    <div class="text-danger">
+                        {% for message in errors.fee_type %}
+                            <p>{{ message }}</p>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+
+            <!-- Amount Field -->
+            <div class="mb-3">
+                <label for="amount" class="form-label">Amount</label>
+                <input type="number" id="amount" name="amount" class="form-control" step="0.01" max="99999999.99" required>
+                {% if errors.amount %}
+                    <div class="text-danger">
+                        {% for message in errors.amount %}
+                            <p>{{ message }}</p>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+
+            <!-- Payment Date Field -->
+            <div class="mb-3">
+                <label for="payment_date" class="form-label">Payment Date</label>
+                <input type="date" id="payment_date" name="payment_date" class="form-control" required>
+                {% if errors.payment_date %}
+                    <div class="text-danger">
+                        {% for message in errors.payment_date %}
+                            <p>{{ message }}</p>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+
+            <!-- Remarks Field -->
+            <div class="mb-3">
+                <label for="remarks" class="form-label">Remarks</label>
+                <textarea id="remarks" name="remarks" class="form-control" rows="4"></textarea>
+            </div>
+
+            <!-- Submit Buttons -->
+            <div class="d-flex gap-2">
+                <button type="submit" class="btn btn-primary">Create</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

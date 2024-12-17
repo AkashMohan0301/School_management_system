@@ -1,0 +1,49 @@
+
+{% extends "base_generic.html" %}
+{% block sidebar %}
+<ul class="nav">
+
+
+
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+        <i class="mdi mdi-account-multiple-plus menu-icon"></i>
+        <span class="menu-title">View Students</span>
+        <i class="menu-arrow"></i>
+      </a>
+      <div class="collapse" id="ui-basic">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item"> <a class="nav-link" href="{% url 'student_list' %}">Students List</a></li>
+        </ul>
+      </div>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+        <i class="mdi  mdi mdi-library menu-icon"></i>
+        <span class="menu-title">Manage Library</span>
+        <i class="menu-arrow"></i>
+      </a>
+      <div class="collapse" id="ui-basic">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item"> <a class="nav-link" href="{% url 'manage_library' %}">Add Library</a></li>
+          <li class="nav-item"> <a class="nav-link" href="{% url 'view_library_history' %}">View Library History</a></li>
+        </ul>
+      </div>
+    </li>
+
+</ul>
+{% endblock sidebar %}
+{% block main %}
+<div class="row">
+  <div class="col-md-12 stretch-card">
+    <div class="card">
+      <div class="card-body">
+
+        <p class="card-title">Librarian Dashboard</p>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock main %}

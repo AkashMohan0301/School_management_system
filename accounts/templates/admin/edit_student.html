@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Student</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="mb-4">Edit Student</h1>
+
+        <!-- Form to Edit Student -->
+        <form method="post" enctype="multipart/form-data" action="{% url 'edit_student' %}">
+            {% csrf_token %}
+            <div class="mb-3">
+                <input type="hidden" name="method" id="method" value="put">
+                <input type="hidden" name="student_id" id="student_id" value="{{ student.id }}">
+
+                <!-- Display Profile Picture -->
+                {% if student.profile_picture %}
+                    <img src="{{ student.profile_picture.url }}" class="img-thumbnail" style="max-width: 100px;">
+                {% else %}
+                    <span>No Image</span>
+                {% endif %}
+            </div>
+
+            <!-- Name Field -->
+            <div class="mb-3">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" name="name" id="name" value="{{ student.name }}" class="form-control {% if errors.name %}is-invalid{% endif %}" required>
+                {% if errors.name %}
+                    <div class="invalid-feedback">
+                        {% for error in errors.name %}
+                            <p>{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+
+            <!-- Age Field -->
+            <div class="mb-3">
+                <label for="age" class="form-label">Age</label>
+                <input type="number" name="age" id="age" value="{{ student.age }}" class="form-control {% if errors.age %}is-invalid{% endif %}" required>
+                {% if errors.age %}
+                    <div class="invalid-feedback">
+                        {% for error in errors.age %}
+                            <p>{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+
+            <!-- Date of Birth Field -->
+            <div class="mb-3">
+                <label for="dob" class="form-label">Date of Birth</label>
+                <input type="date" name="dob" id="dob" value="{{ student.dob }}" class="form-control {% if errors.dob %}is-invalid{% endif %}" min="1995-01-01" max="2018-12-31" required>
+                {% if errors.dob %}
+                    <div class="invalid-feedback">
+                        {% for error in errors.dob %}
+                            <p>{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+
+            <!-- Address Field -->
+            <div class="mb-3">
+                <label for="address" class="form-label">Address</label>
+                <input type="text" name="address" id="address" value="{{ student.address }}" class="form-control {% if errors.address %}is-invalid{% endif %}" required>
+                {% if errors.address %}
+                    <div class="invalid-feedback">
+                        {% for error in errors.address %}
+                            <p>{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+
+            <!-- Gender Field -->
+            <div class="mb-3">
+                <label for="gender" class="form-label">Gender</label>
+                <select name="gender" id="gender" class="form-control {% if errors.gender %}is-invalid{% endif %}" required>
+                    <option value="male" {% if student.gender == 'male' %}selected{% endif %}>Male</option>
+                    <option value="female" {% if student.gender == 'female' %}selected{% endif %}>Female</option>
+                    <option value="other" {% if student.gender == 'other' %}selected{% endif %}>Other</option>
+                </select>
+                {% if errors.gender %}
+                    <div class="invalid-feedback">
+                        {% for error in errors.gender %}
+                            <p>{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+
+            <!-- Phone Number Field -->
+            <div class="mb-3">
+                <label for="phone_number" class="form-label">Phone Number</label>
+                <input type="text" name="phone_number" id="phone_number" value="{{ student.phone_number }}" class="form-control {% if errors.phone_number %}is-invalid{% endif %}" required>
+                {% if errors.phone_number %}
+                    <div class="invalid-feedback">
+                        {% for error in errors.phone_number %}
+                            <p>{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+
+            <!-- Class Name Dropdown -->
+            <div class="mb-3">
+                <label for="class_name" class="form-label">Class Name</label>
+                <select name="class_name" id="class_name" class="form-control {% if errors.class_name %}is-invalid{% endif %}" required>
+                    {% for class in classes %}
+                        <option value="{{ class.id }}" {% if class.id == student.class_name %}selected{% endif %}>{{ class.name }}</option>
+                    {% endfor %}
+                </select>
+                {% if errors.class_name %}
+                    <div class="invalid-feedback">
+                        {% for error in errors.class_name %}
+                            <p>{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+
+            <!-- Profile Picture Upload -->
+            <div class="mb-3">
+                <label for="profile_picture" class="form-label">Profile Picture</label>
+                <input type="file" name="profile_picture" id="profile_picture" class="form-control {% if errors.profile_picture %}is-invalid{% endif %}">
+                {% if errors.profile_picture %}
+                    <div class="invalid-feedback">
+                        {% for error in errors.profile_picture %}
+                            <p>{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="btn btn-primary">Edit</button>
+        </form>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
