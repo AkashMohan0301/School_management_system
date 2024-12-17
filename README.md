@@ -28,16 +28,6 @@ The School Management System is a Django-based web application that allows manag
 ### Librarian Dashboard
 - View-only access to student details and library borrowing records.
 
-### Student Management
-- Create, update, view, and delete student records.
-
-### Library History Management
-- Add, edit, delete, and view borrowing records.
-- Fields: `book_name`, `borrow_date`, `return_date`, `status`.
-
-### Fees History Management
-- Add, edit, delete, and view fees records.
-- Fields: `student_id`, `fee_type`, `amount`, `payment_date`, `remarks`.
 
 ---
 
