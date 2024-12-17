@@ -71,6 +71,19 @@ The School Management System is a Django-based web application that allows manag
   -python manage.py migrate
 6. Run the development server:
   -python manage.py runserver
+7. Create Superuser for administrative privileges
+  - py manage.py createsuperuser
+    -email:
+    -name:
+    -phone_number:
+    password:
+8. Login to admin panel
+  -Add Classname (MCA,BTech,etc..) in Classes Model for registering classes
+9. Run Development server:
+  -py manage.py runserver
+  -click link to redirect to Login Page
+
+
 
 ### Contributors
 1.Akash Mohankumar M
